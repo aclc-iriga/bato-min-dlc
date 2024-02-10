@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2023 at 07:13 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.1.12
+-- Generation Time: Feb 10, 2024 at 12:48 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bowa-bowaan`
+-- Database: `bato-min-dlc`
 --
 
 -- --------------------------------------------------------
@@ -46,7 +46,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `number`, `name`, `avatar`, `username`, `password`, `active_portion`, `called_at`, `pinged_at`, `created_at`, `updated_at`) VALUES
-(1, 1, 'DEVELOPMENT', 'no-avatar.jpg', 'admin', 'admin', NULL, NULL, NULL, '2023-02-19 07:36:32', '2023-05-21 21:02:37');
+(1, 1, 'DEVELOPMENT', 'no-avatar.jpg', 'admin', 'admin', NULL, NULL, NULL, '2023-02-19 07:36:32', '2024-02-10 11:44:31');
 
 -- --------------------------------------------------------
 
@@ -83,8 +83,8 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `competition_id`, `slug`, `title`, `created_at`, `updated_at`) VALUES
-(1, 1, 'category', 'Category', '2023-04-06 13:25:10', '2023-05-01 09:50:18'),
-(2, 1, 'technical', 'Technical', '2023-05-01 09:57:12', '2023-05-01 09:57:12');
+(1, 1, 'marching-parade', 'Marching Parade', '2024-02-10 10:27:05', '2024-02-10 10:28:45'),
+(2, 1, 'dlc-minorettes-exhibition', 'DLC and Minorettes Exhibition', '2024-02-10 10:27:43', '2024-02-10 10:29:38');
 
 -- --------------------------------------------------------
 
@@ -105,7 +105,7 @@ CREATE TABLE `competitions` (
 --
 
 INSERT INTO `competitions` (`id`, `slug`, `title`, `created_at`, `updated_at`) VALUES
-(1, 'bowa-bowaan-2023', 'Bowa-Bowaan Street Dancing Competition 2023', '2023-04-06 13:24:04', '2023-04-06 13:24:04');
+(1, 'bato-min-dlc-2023', 'DLC and Minorettes Competition (Elementary Level) 2023', '2023-04-06 13:24:04', '2023-04-06 13:24:04');
 
 -- --------------------------------------------------------
 
@@ -127,18 +127,26 @@ CREATE TABLE `criteria` (
 --
 
 INSERT INTO `criteria` (`id`, `event_id`, `title`, `percentage`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Projection, Variation, Energy', 50, '2023-05-01 09:59:13', '2023-05-01 09:59:13'),
-(2, 1, 'Originality and Creativity', 30, '2023-05-01 09:59:58', '2023-05-01 09:59:58'),
-(3, 1, 'Orderliness and Discipline', 20, '2023-05-01 10:00:37', '2023-05-01 10:00:37'),
-(4, 2, 'Choreography', 25, '2023-05-01 10:02:41', '2023-05-01 10:02:41'),
-(5, 2, 'Interpretation', 15, '2023-05-01 10:03:10', '2023-05-01 10:03:10'),
-(6, 2, 'Music', 20, '2023-05-01 10:03:23', '2023-05-01 10:03:23'),
-(7, 2, 'Mastery', 15, '2023-05-01 10:03:45', '2023-05-01 10:03:45'),
-(8, 2, 'Costume and Props', 25, '2023-05-01 10:04:07', '2023-05-01 10:04:07'),
-(9, 4, 'Execution', 30, '2023-05-02 02:35:55', '2023-05-02 02:35:55'),
-(10, 4, 'Technique', 30, '2023-05-02 02:36:03', '2023-05-02 02:36:03'),
-(11, 4, 'Choreography', 30, '2023-05-02 02:36:13', '2023-05-02 02:36:13'),
-(12, 4, 'Overall Impact', 10, '2023-05-02 02:36:22', '2023-05-02 02:36:22');
+(1, 1, 'Marching', 30, '2024-02-10 10:39:14', '2024-02-10 10:39:14'),
+(2, 1, 'Baton Twirling', 30, '2024-02-10 10:39:27', '2024-02-10 10:39:27'),
+(3, 1, 'Rhythm & Style', 15, '2024-02-10 10:39:43', '2024-02-10 10:39:43'),
+(4, 1, 'Uniform (Appeal & Neatness)', 10, '2024-02-10 10:40:02', '2024-02-10 10:40:02'),
+(5, 1, 'Eyes Right', 15, '2024-02-10 10:40:21', '2024-02-10 10:40:21'),
+(6, 2, 'Precision of Drums (Score, Clarity Interpretation)', 30, '2024-02-10 10:41:46', '2024-02-10 10:41:46'),
+(7, 2, 'Sound of the Bugles or Lyre (Clarity, Timing, Intonation)', 30, '2024-02-10 10:42:07', '2024-02-10 10:42:07'),
+(8, 2, 'Marching (Smartness, Timing & Alignment)', 25, '2024-02-10 10:42:36', '2024-02-10 10:42:36'),
+(9, 2, 'Uniform (Smartness & Neatness)', 15, '2024-02-10 10:43:00', '2024-02-10 10:43:00'),
+(10, 3, 'Marching', 25, '2024-02-10 10:43:42', '2024-02-10 10:43:42'),
+(11, 3, 'Baton Twirling (Mastery & Gracefulness) ', 30, '2024-02-10 10:44:10', '2024-02-10 10:44:10'),
+(12, 3, 'Choreography (Movement & Style)', 30, '2024-02-10 10:45:28', '2024-02-10 10:45:28'),
+(13, 3, 'Uniform (Appeal & Neatness)', 10, '2024-02-10 10:45:49', '2024-02-10 10:45:49'),
+(14, 3, 'Performance of the Minorette Leader', 5, '2024-02-10 10:46:29', '2024-02-10 10:46:29'),
+(15, 4, 'Precision of Drums (Score, Clarity Interpretation)', 25, '2024-02-10 10:47:00', '2024-02-10 10:47:00'),
+(16, 4, 'Sound of the Bugles or Lyre (Clarity, Timing & Interpretation)', 25, '2024-02-10 10:47:26', '2024-02-10 10:47:26'),
+(17, 4, 'Choreography', 20, '2024-02-10 10:47:42', '2024-02-10 10:47:42'),
+(18, 4, 'Marching (Smartness, Timing & Alignment)', 15, '2024-02-10 10:48:11', '2024-02-10 10:48:11'),
+(19, 4, 'Uniform (Smartness & Neatness)', 10, '2024-02-10 10:48:41', '2024-02-10 10:48:41'),
+(20, 4, 'Performance of the DLC Conductor', 5, '2024-02-10 10:49:12', '2024-02-10 10:49:12');
 
 -- --------------------------------------------------------
 
@@ -171,14 +179,6 @@ CREATE TABLE `eliminations` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `eliminations`
---
-
-INSERT INTO `eliminations` (`id`, `event_id`, `team_id`, `created_at`, `updated_at`) VALUES
-(1, 4, 4, '2023-05-02 04:51:17', '2023-05-02 04:51:17'),
-(2, 4, 6, '2023-05-02 04:51:18', '2023-05-02 04:51:18');
-
 -- --------------------------------------------------------
 
 --
@@ -199,10 +199,10 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`id`, `category_id`, `slug`, `title`, `created_at`, `updated_at`) VALUES
-(1, 1, 'street-dancing', 'Street Dancing', '2023-05-01 09:53:40', '2023-05-01 09:53:40'),
-(2, 1, 'dance-exhibition', 'Dance Exhibition', '2023-05-01 09:53:53', '2023-05-01 09:53:53'),
-(3, 2, 'deductions', 'Deductions', '2023-05-01 09:57:28', '2023-05-01 09:57:28'),
-(4, 1, 'alinsangan-festival-queen', 'Alinsangan Festival Queen', '2023-05-02 02:35:33', '2023-05-02 02:35:33');
+(1, 1, 'marching-minorettes', 'Marching Minorettes ', '2024-02-10 10:34:37', '2024-02-10 10:34:37'),
+(2, 1, 'marching-dlc-parade', 'Marching DLC Parade', '2024-02-10 10:35:00', '2024-02-10 10:35:00'),
+(3, 2, 'minorettes-exhibition', 'Minorettes Exhibition', '2024-02-10 10:36:06', '2024-02-10 10:36:06'),
+(4, 2, 'dlc-exhibition', 'DLC Exhibition', '2024-02-10 10:36:25', '2024-02-10 10:36:25');
 
 -- --------------------------------------------------------
 
@@ -255,21 +255,18 @@ CREATE TABLE `judge_event` (
 --
 
 INSERT INTO `judge_event` (`id`, `judge_id`, `event_id`, `is_chairman`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 0, '2023-05-01 10:12:40', '2023-05-01 17:07:24'),
-(2, 1, 2, 0, '2023-05-01 10:12:42', '2023-05-01 17:07:27'),
-(3, 2, 1, 0, '2023-05-01 10:12:50', '2023-05-01 17:07:30'),
-(4, 2, 2, 0, '2023-05-01 10:12:52', '2023-05-01 17:07:33'),
-(5, 3, 1, 0, '2023-05-01 10:12:59', '2023-05-01 17:07:35'),
-(6, 3, 2, 0, '2023-05-01 10:13:02', '2023-05-01 17:07:38'),
-(7, 4, 1, 0, '2023-05-01 10:13:08', '2023-05-01 17:07:40'),
-(8, 4, 2, 0, '2023-05-01 10:13:10', '2023-05-01 17:07:43'),
-(9, 5, 1, 1, '2023-05-01 10:13:17', '2023-05-02 01:01:31'),
-(10, 5, 2, 1, '2023-05-01 10:13:19', '2023-05-02 01:01:34'),
-(11, 1, 4, 0, '2023-05-02 02:36:38', '2023-05-02 02:36:38'),
-(12, 2, 4, 0, '2023-05-02 02:36:46', '2023-05-02 02:36:46'),
-(13, 3, 4, 0, '2023-05-02 02:36:51', '2023-05-02 02:36:51'),
-(14, 4, 4, 0, '2023-05-02 02:36:55', '2023-05-02 02:36:55'),
-(15, 5, 4, 1, '2023-05-02 02:37:03', '2023-05-02 02:38:39');
+(1, 1, 1, 0, '2024-02-10 11:11:22', '2024-02-10 11:14:12'),
+(2, 1, 2, 0, '2024-02-10 11:11:30', '2024-02-10 11:14:17'),
+(3, 1, 3, 0, '2024-02-10 11:11:33', '2024-02-10 11:14:21'),
+(4, 1, 4, 0, '2024-02-10 11:11:36', '2024-02-10 11:14:24'),
+(5, 2, 1, 0, '2024-02-10 11:11:43', '2024-02-10 11:14:27'),
+(6, 2, 2, 0, '2024-02-10 11:11:47', '2024-02-10 11:14:33'),
+(7, 2, 3, 0, '2024-02-10 11:11:50', '2024-02-10 11:14:36'),
+(8, 2, 4, 0, '2024-02-10 11:11:55', '2024-02-10 11:14:38'),
+(9, 3, 1, 0, '2024-02-10 11:12:10', '2024-02-10 11:14:41'),
+(10, 3, 2, 0, '2024-02-10 11:12:14', '2024-02-10 11:14:44'),
+(11, 3, 3, 0, '2024-02-10 11:12:18', '2024-02-10 11:14:47'),
+(12, 3, 4, 0, '2024-02-10 11:12:21', '2024-02-10 11:14:53');
 
 -- --------------------------------------------------------
 
@@ -358,12 +355,13 @@ CREATE TABLE `teams` (
 --
 
 INSERT INTO `teams` (`id`, `number`, `name`, `location`, `avatar`, `created_at`, `updated_at`) VALUES
-(1, 6, 'Rancheria SABANG', 'CLUSTER 6', 'contingent.jpg', '2023-04-06 13:50:48', '2023-05-02 00:15:21'),
-(2, 1, 'Rancheria ANTAKUDOS', 'CLUSTER 1', 'contingent.jpg', '2023-04-06 13:52:26', '2023-05-02 00:15:25'),
-(3, 3, 'Rancheria LUPA', 'CLUSTER 3', 'contingent.jpg', '2023-04-06 13:43:02', '2023-05-02 00:13:41'),
-(4, 2, 'Rancheria BINOYOAN', 'CLUSTER 2', 'contingent.jpg', '2023-04-06 13:49:52', '2023-05-02 00:15:30'),
-(5, 4, 'Rancheria BOWA', 'CLUSTER 4', 'contingent.jpg', '2023-04-06 13:46:35', '2023-05-02 00:15:33'),
-(6, 5, 'Rancheria CAOBNAN', 'CLUSTER 5', 'contingent.jpg', '2023-04-06 13:51:50', '2023-05-02 00:15:36');
+(1, 1, 'Contingent 1', 'Location 1', 'contingent.png', '2024-02-10 11:09:16', '2024-02-10 11:17:57'),
+(2, 2, 'Contingent 2', 'Location 2', 'contingent.png', '2024-02-10 11:09:39', '2024-02-10 11:18:01'),
+(3, 3, 'Contingent 3', 'Location 3', 'contingent.png', '2024-02-10 11:09:57', '2024-02-10 11:18:05'),
+(4, 4, 'Contingent 4', 'Location 4', 'contingent.png', '2024-02-10 11:10:18', '2024-02-10 11:18:09'),
+(5, 5, 'Contingent 5', 'Location 5', 'contingent.png', '2024-02-10 11:10:41', '2024-02-10 11:18:13'),
+(6, 6, 'Contingent 6', 'Location 6', 'contingent.png', '2024-02-10 11:17:15', '2024-02-10 11:18:17'),
+(7, 7, 'Contingent 7', 'Location 7', 'contingent.png', '2024-02-10 11:17:36', '2024-02-10 11:18:21');
 
 -- --------------------------------------------------------
 
@@ -411,7 +409,10 @@ CREATE TABLE `technical_event` (
 --
 
 INSERT INTO `technical_event` (`id`, `technical_id`, `event_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 3, '2023-05-01 10:13:32', '2023-05-01 10:13:32');
+(1, 1, 1, '2024-02-10 11:12:30', '2024-02-10 11:16:02'),
+(2, 1, 2, '2024-02-10 11:12:33', '2024-02-10 11:16:05'),
+(3, 1, 3, '2024-02-10 11:12:35', '2024-02-10 11:16:08'),
+(4, 1, 4, '2024-02-10 11:12:37', '2024-02-10 11:16:10');
 
 -- --------------------------------------------------------
 
@@ -433,13 +434,34 @@ CREATE TABLE `titles` (
 --
 
 INSERT INTO `titles` (`id`, `event_id`, `rank`, `title`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, '1st Place', '2023-05-01 16:45:04', '2023-05-01 16:45:04'),
-(2, 1, 2, '2nd Place', '2023-05-01 16:45:04', '2023-05-01 16:45:04'),
-(3, 1, 3, '3rd Place', '2023-05-01 16:45:04', '2023-05-01 16:45:04'),
-(4, 2, 1, '1st Place', '2023-05-01 16:45:41', '2023-05-01 16:45:41'),
-(5, 2, 2, '2nd Place', '2023-05-01 16:45:41', '2023-05-01 16:45:41'),
-(6, 2, 3, '3rd Place', '2023-05-01 16:45:41', '2023-05-01 16:45:41'),
-(7, 4, 1, 'Alinsangan Festival Queen 2023', '2023-05-02 02:38:10', '2023-05-02 13:51:47');
+(1, 1, 1, '1st Place', '2024-02-10 11:29:37', '2024-02-10 11:33:26'),
+(2, 1, 2, '2nd Place', '2024-02-10 11:29:37', '2024-02-10 11:33:53'),
+(3, 1, 3, '3rd Place', '2024-02-10 11:29:37', '2024-02-10 11:34:09'),
+(4, 1, 4, '4th Place', '2024-02-10 11:29:37', '2024-02-10 11:34:20'),
+(5, 1, 5, '5th Place', '2024-02-10 11:29:37', '2024-02-10 11:34:29'),
+(6, 1, 6, '', '2024-02-10 11:29:37', '2024-02-10 11:29:37'),
+(7, 1, 7, '', '2024-02-10 11:29:37', '2024-02-10 11:29:37'),
+(8, 2, 1, '1st Place', '2024-02-10 11:29:39', '2024-02-10 11:33:26'),
+(9, 2, 2, '2nd Place', '2024-02-10 11:29:39', '2024-02-10 11:33:53'),
+(10, 2, 3, '3rd Place', '2024-02-10 11:29:39', '2024-02-10 11:34:09'),
+(11, 2, 4, '4th Place', '2024-02-10 11:29:39', '2024-02-10 11:34:20'),
+(12, 2, 5, '5th Place', '2024-02-10 11:29:39', '2024-02-10 11:34:29'),
+(13, 2, 6, '', '2024-02-10 11:29:39', '2024-02-10 11:29:39'),
+(14, 2, 7, '', '2024-02-10 11:29:39', '2024-02-10 11:29:39'),
+(15, 3, 1, '1st Place', '2024-02-10 11:29:42', '2024-02-10 11:33:26'),
+(16, 3, 2, '2nd Place', '2024-02-10 11:29:42', '2024-02-10 11:33:53'),
+(17, 3, 3, '3rd Place', '2024-02-10 11:29:42', '2024-02-10 11:34:09'),
+(18, 3, 4, '4th Place', '2024-02-10 11:29:42', '2024-02-10 11:34:20'),
+(19, 3, 5, '5th Place', '2024-02-10 11:29:42', '2024-02-10 11:34:29'),
+(20, 3, 6, '', '2024-02-10 11:29:42', '2024-02-10 11:29:42'),
+(21, 3, 7, '', '2024-02-10 11:29:42', '2024-02-10 11:29:42'),
+(22, 4, 1, '1st Place', '2024-02-10 11:29:43', '2024-02-10 11:33:26'),
+(23, 4, 2, '2nd Place', '2024-02-10 11:29:43', '2024-02-10 11:33:53'),
+(24, 4, 3, '3rd Place', '2024-02-10 11:29:43', '2024-02-10 11:34:09'),
+(25, 4, 4, '4th Place', '2024-02-10 11:29:43', '2024-02-10 11:34:20'),
+(26, 4, 5, '5th Place', '2024-02-10 11:29:43', '2024-02-10 11:34:29'),
+(27, 4, 6, '', '2024-02-10 11:29:43', '2024-02-10 11:29:43'),
+(28, 4, 7, '', '2024-02-10 11:29:43', '2024-02-10 11:29:43');
 
 --
 -- Indexes for dumped tables
@@ -608,7 +630,7 @@ ALTER TABLE `competitions`
 -- AUTO_INCREMENT for table `criteria`
 --
 ALTER TABLE `criteria`
-  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `deductions`
@@ -638,7 +660,7 @@ ALTER TABLE `judges`
 -- AUTO_INCREMENT for table `judge_event`
 --
 ALTER TABLE `judge_event`
-  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `noshows`
@@ -668,7 +690,7 @@ ALTER TABLE `ratings`
 -- AUTO_INCREMENT for table `teams`
 --
 ALTER TABLE `teams`
-  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `technicals`
@@ -680,13 +702,13 @@ ALTER TABLE `technicals`
 -- AUTO_INCREMENT for table `technical_event`
 --
 ALTER TABLE `technical_event`
-  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `titles`
 --
 ALTER TABLE `titles`
-  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Constraints for dumped tables
