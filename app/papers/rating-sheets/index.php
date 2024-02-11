@@ -5,6 +5,7 @@
     require_once '../../config/database.php';
     require_once '../../models/Competition.php';
     require_once '../../models/Category.php';
+    require_once '../../models/Event.php';
 ?>
 
 <!DOCTYPE html>
@@ -38,8 +39,8 @@
     <div class="container-fluid mt-5">
         <div class="row">
             <!-- events -->
-            <?php foreach((Category::findBySlug('category'))->getAllEvents() as $event) { ?>
-                <div class="pt-3 pb-5 mb-5">
+            <?php foreach(Event::all() as $event) { ?>
+                <div class="pt-3 pb-5 mb-5" style="page-break-before: always">
                     <div class="row">
                         <div class="col-md-6 text-center">
                             <h4 class="text-uppercase"><?= Competition::findById(1)->getTitle() ?></h4>
@@ -138,11 +139,11 @@
     </div>
 
     <!-- DEDUCTION SHEET -->
-    <div class="container-fluid mt-5" style="page-break-before: always">
+    <div class="container-fluid mt-5">
         <div class="row">
             <!-- events -->
-            <?php foreach((Category::findBySlug('technical'))->getAllEvents() as $event) { ?>
-                <div class="pt-3 pb-5 mb-5">
+            <?php foreach(Event::all() as $event) { ?>
+                <div class="pt-3 pb-5 mb-5" style="page-break-before: always">
                     <div class="row">
                         <div class="col-md-6 text-center">
                             <h4 class="text-uppercase mb-3"><?= Competition::findById(1)->getTitle() ?></h4>
@@ -167,14 +168,6 @@
                             <th class="table-danger br" style="width: 40%">
                                 <h2 class="text-center text-uppercase fw-bold m-0">DEDUCTIONS</h2>
                             </th>
-                        </tr>
-                        <tr class="table-secondary">
-                            <!-- criteria points headers -->
-                            <?php foreach($event->getAllCriteria() as $criterion) { ?>
-                                <th class="text-center br">
-                                    <h5 class="m-0"><b><?= $criterion->getPercentage() ?></b> pts.</h5>
-                                </th>
-                            <?php } ?>
                         </tr>
                         </thead>
 
@@ -203,11 +196,6 @@
                                     <h5 class="text-uppercase m-0"><?= $team->getName() ?></h5>
                                     <small class="m-0"><?= $team->getLocation() ?></small>
                                 </td>
-
-                                <!-- rating box -->
-                                <?php foreach($event->getAllCriteria() as $criterion) { ?>
-                                    <td class="bb br"></td>
-                                <?php } ?>
 
                                 <!-- total box -->
                                 <td class="bb br"></td>
