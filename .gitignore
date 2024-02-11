@@ -19,8 +19,13 @@ app/_test.php
 app/_env.php
 app/config/database.php
 app/crud/uploads/*
-!app/crud/uploads/contingent.jpg
+!app/crud/uploads/contingent.png
 !app/crud/uploads/no-avatar.jpg
+!app/crud/uploads/bato-north-central.jpg
+!app/crud/uploads/bato-south-central.jpg
+!app/crud/uploads/carlos-nardo.jpg
+!app/crud/uploads/dr-haracleo-a-guballa.jpg
+!app/crud/uploads/pagatpatan.jpg
 !app/crud/dist
 /cypress/videos/
 /cypress/screenshots/

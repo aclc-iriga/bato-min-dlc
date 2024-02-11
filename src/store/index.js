@@ -12,7 +12,7 @@ export default createStore({
 
     state: {
         app: {
-            title: 'DLC and Minorettes Competition (Elementary Level) 2023',
+            title: 'DLC and Minorettes Competition 2024',
             org: 'ACLC College Iriga',
             backendDir: 'app',
             sideNav: false
