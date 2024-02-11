@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2024 at 03:54 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Feb 11, 2024 at 09:38 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -98,7 +98,7 @@ CREATE TABLE `categories` (
 
 INSERT INTO `categories` (`id`, `competition_id`, `slug`, `title`, `created_at`, `updated_at`) VALUES
 (1, 1, 'marching-parade', 'Marching Parade', '2024-02-10 10:27:05', '2024-02-10 10:28:45'),
-(2, 1, 'dlc-minorettes-exhibition', 'DLC and Minorettes Exhibition', '2024-02-10 10:27:43', '2024-02-10 10:29:38');
+(2, 1, 'exhibition', 'Exhibition', '2024-02-10 10:27:43', '2024-02-11 20:37:41');
 
 -- --------------------------------------------------------
 
@@ -179,32 +179,6 @@ CREATE TABLE `deductions` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `deductions`
---
-
-INSERT INTO `deductions` (`id`, `technical_id`, `event_id`, `team_id`, `value`, `is_locked`, `created_at`, `updated_at`) VALUES
-(29, 1, 4, 1, 0, 0, '2024-02-11 06:57:44', '2024-02-11 06:57:44'),
-(30, 1, 4, 5, 0, 0, '2024-02-11 06:57:44', '2024-02-11 06:57:44'),
-(31, 1, 4, 4, 0, 0, '2024-02-11 06:57:44', '2024-02-11 06:57:44'),
-(32, 1, 4, 2, 0, 0, '2024-02-11 06:57:44', '2024-02-11 06:57:44'),
-(33, 1, 4, 3, 0, 0, '2024-02-11 06:57:44', '2024-02-11 06:57:44'),
-(34, 1, 1, 1, 0, 0, '2024-02-11 06:57:45', '2024-02-11 06:57:45'),
-(35, 1, 1, 2, 0, 0, '2024-02-11 06:57:45', '2024-02-11 06:57:45'),
-(36, 1, 1, 3, 0, 0, '2024-02-11 06:57:45', '2024-02-11 06:57:45'),
-(37, 1, 1, 4, 0, 0, '2024-02-11 06:57:45', '2024-02-11 06:57:45'),
-(38, 1, 1, 5, 0, 0, '2024-02-11 06:57:45', '2024-02-11 06:57:45'),
-(39, 1, 2, 1, 0, 0, '2024-02-11 06:58:14', '2024-02-11 06:58:14'),
-(40, 1, 2, 2, 0, 0, '2024-02-11 06:58:14', '2024-02-11 06:58:14'),
-(41, 1, 2, 3, 0, 0, '2024-02-11 06:58:14', '2024-02-11 06:58:14'),
-(42, 1, 2, 4, 0, 0, '2024-02-11 06:58:14', '2024-02-11 06:58:14'),
-(43, 1, 2, 5, 0, 0, '2024-02-11 06:58:14', '2024-02-11 06:58:14'),
-(44, 1, 3, 1, 0, 0, '2024-02-11 06:58:19', '2024-02-11 06:58:19'),
-(45, 1, 3, 5, 0, 0, '2024-02-11 06:58:19', '2024-02-11 06:58:19'),
-(46, 1, 3, 4, 0, 0, '2024-02-11 06:58:19', '2024-02-11 06:58:19'),
-(47, 1, 3, 2, 0, 0, '2024-02-11 06:58:19', '2024-02-11 06:58:19'),
-(48, 1, 3, 3, 0, 0, '2024-02-11 06:58:19', '2024-02-11 06:58:19');
-
 -- --------------------------------------------------------
 
 --
@@ -274,7 +248,7 @@ INSERT INTO `judges` (`id`, `number`, `name`, `avatar`, `username`, `password`, 
 (3, 3, 'Judge 1-03', 'no-avatar.jpg', 'judge13', 'judge13', NULL, NULL, NULL, '2023-04-06 13:58:42', '2024-02-11 06:42:16'),
 (4, 1, 'Judge 2-01', 'no-avatar.jpg', 'judge21', 'judge21', NULL, NULL, NULL, '2023-04-06 13:59:26', '2024-02-11 06:42:20'),
 (5, 2, 'Judge 2-02', 'no-avatar.jpg', 'judge22', 'judge22', NULL, NULL, NULL, '2023-04-06 14:00:00', '2024-02-11 06:42:24'),
-(6, 3, 'Judge 2-03', 'noavatar.jpg', 'judge23', 'judge23', NULL, NULL, NULL, '2024-02-11 06:39:59', '2024-02-11 06:42:31');
+(6, 3, 'Judge 2-03', 'no-avatar.jpg', 'judge23', 'judge23', NULL, NULL, NULL, '2024-02-11 06:39:59', '2024-02-11 20:38:18');
 
 -- --------------------------------------------------------
 
@@ -667,7 +641,7 @@ ALTER TABLE `criteria`
 -- AUTO_INCREMENT for table `deductions`
 --
 ALTER TABLE `deductions`
-  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `eliminations`
