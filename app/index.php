@@ -59,13 +59,13 @@ else if(isset($_POST['signOut'])) {
 
 
 $routes = [
-    [ "name" => "Tabulation"      , "route" => "/bato-min-dlc"          ],
+    [ "name" => "Tabulation"      , "route" => "/bato-min-dlc"         ],
     [ "name" => "CRUD"            , "route" => "crud/competitions.php" ],
     [ "name" => "User Assignments", "route" => "crud/assignment"       ],
     [ "name" => "Eliminations"    , "route" => "crud/eliminations"     ],
     [ "name" => "Arrangements"    , "route" => "crud/orders"           ],
     [ "name" => "Rating Sheets"   , "route" => "papers/rating-sheets"  ],
-    [ "name" => "Overall"   , "route" => "results/overall"  ]
+    [ "name" => "Overall Results" , "route" => "results/overall"       ]
 ];
 ?>
 <!DOCTYPE html>
